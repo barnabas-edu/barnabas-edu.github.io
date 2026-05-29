@@ -118,7 +118,25 @@
     let totalPosts = 0;
     let totalPages = 0;
 
-    // Segédfüggvény az első kép kinyeréséhez a bejegyzés tartalmából
+    // Oldal kiolvasása az URL-ből
+    function getPageFromUrl() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const page = parseInt(urlParams.get('page')) || 1;
+      return Math.max(1, page);
+    }
+
+    // URL frissítése az oldalszámmal
+    function updateUrl(page) {
+      const url = new URL(window.location);
+      if (page > 1) {
+        url.searchParams.set('page', page);
+      } else {
+        url.searchParams.delete('page');
+      }
+      window.history.pushState({ page: page }, '', url);
+    }
+
+    // Segédfüggvény az első kép kinyeréséhez
     function extractFirstImage(content) {
       if (!content) return null;
       
@@ -255,30 +273,75 @@
       const pagination = document.getElementById('pagination');
       pagination.style.display = 'flex';
       
-      const startPost = (currentPage - 1) * postsPerPage + 1;
-      const endPost = Math.min(currentPage * postsPerPage, totalPosts);
+      let html = '';
       
-      pagination.innerHTML = `
-        <button onclick="goToPage(${currentPage - 1})" ${currentPage === 1 ? 'disabled' : ''}>
-          🠄 Előző oldal
-        </button>
-        <span class="page-info">
-          ${startPost}-${endPost} / ${totalPosts} bejegyzés
-        </span>
-        <button onclick="goToPage(${currentPage + 1})" ${currentPage === totalPages ? 'disabled' : ''}>
-          Következő oldal 🠆
-        </button>
-      `;
+      // Előző gomb
+      if (currentPage > 1) {
+        html += `<button href="?page=${currentPage - 1}" onclick="goToPage(event, ${currentPage - 1})">🠄 Előző oldal</button>`;
+      } else {
+        html += `<button disabled>🠄 Előző oldal</button>`;
+      }
       
-      // Görgessünk a lap tetejére
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      // Oldalszámok generálása
+      const maxVisiblePages = 5;
+      let startPage = Math.max(1, currentPage - Math.floor(maxVisiblePages / 2));
+      let endPage = Math.min(totalPages, startPage + maxVisiblePages - 1);
+      
+      if (endPage - startPage + 1 < maxVisiblePages) {
+        startPage = Math.max(1, endPage - maxVisiblePages + 1);
+      }
+      
+      // Első oldal és ellipszis
+      if (startPage > 1) {
+        html += `<a href="?page=1" onclick="goToPage(event, 1)">1</a>`;
+        if (startPage > 2) {
+          html += `<span class="ellipsis">…</span>`;
+        }
+      }
+      
+      // Oldalszámok
+      for (let i = startPage; i <= endPage; i++) {
+        if (i === currentPage) {
+          html += `<span class="current">${i}. oldal</span>`;
+        }
+      }
+      
+      // Utolsó oldal és ellipszis
+      if (endPage < totalPages) {
+        if (endPage < totalPages - 1) {
+          html += `<span class="ellipsis">…</span>`;
+        }
+        html += `<a href="?page=${totalPages}" onclick="goToPage(event, ${totalPages})">${totalPages}</a>`;
+      }
+      
+      // Következő gomb
+      if (currentPage < totalPages) {
+        html += `<button href="?page=${currentPage + 1}" onclick="goToPage(event, ${currentPage + 1})">Következő oldal 🠆</button>`;
+      } else {
+        html += `<button disabled>Következő oldal 🠆</button>`;
+      }
+      
+      pagination.innerHTML = html;
     }
-
-    function goToPage(page) {
+	
+	function goToPage(event, page) {
+      event.preventDefault();
+      
       if (page < 1 || page > totalPages) return;
+      
       currentPage = page;
+      updateUrl(page);
       loadPage(page);
     }
+
+    // Böngésző vissza/előre navigáció kezelése
+    window.addEventListener('popstate', function(event) {
+      const newPage = getPageFromUrl();
+      if (newPage !== currentPage) {
+        currentPage = newPage;
+        loadPage(newPage);
+      }
+    });
 
     // Kezdőoldal betöltése
     loadPage(1);
