@@ -36,9 +36,11 @@ class MyHeader extends HTMLElement {
                         </li>
                     </ul>
                 </div>
+	<div class="theme-button-place">
         <div class="theme-button" id="themeMenuButton">
             <i class='bx bx-palette nav__icon'></i>
         </div>
+	</div>
 
         <div class="popup" id="themePopup">
             <!-- Mód választó -->
