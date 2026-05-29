@@ -45,32 +45,38 @@ body {
 	padding-inline: 1rem;
 	transition: background 0.2s, color 0.2s;
   }
-	.navbar {
-    display: flex;
-    justify-content: space-between; /* Elemek elosztása: bal-közép-jobb */
-    align-items: center; /* Függőleges középrezárás */
-    background-color: var(--header-bg);
-    padding: 10px 20px;
-    color: white;
+
+.navbar {
+	display: grid;
+	grid-template-columns: 1fr auto 1fr;
+	align-items: center; /* Függőleges középrezárás */
+	background-color: var(--header-bg);
+	padding: 10px 20px;
+	color: white;
 	box-shadow: var(--navshadow);
 }
 	
-  .nav__menu {
-	  transition: background 0.2s, color 0.2s;
-	}
-  .nav__logo {
-		color: var(--header-logo);
-	    cursor: var(--pointer);
-		transition: background 0.2s, color 0.2s;
-		}
-  .nav__link {
+.nav__menu {
+	transition: background 0.2s, color 0.2s;
+}
+.nav__logo {
+	color: var(--header-logo);
+	cursor: var(--pointer);
+	transition: background 0.2s, color 0.2s;
+}
+.nav__link {
 	color: var(--header-text);
 	transition: background 0.2s, color 0.2s;
 	cursor: var(--pointer);
-	}
-  .nav__link:hover {
-    color: var(--first-color);
-  }
+}
+.nav__link:hover {
+	color: var(--first-color);
+}
+
+.theme-button-place {
+    display: flex;
+    justify-content: flex-end;
+}
 
 div#postList {
     display: grid;
@@ -500,6 +506,11 @@ table, th, td {
   .nav {
     height: calc(var(--header-height) + 1.5rem); /* 4.5rem */
   }
+
+	.navbar {
+		display: flex;
+		justify-content: space-between;
+	}
   .nav__img {
     display: none;
   }
