@@ -222,48 +222,54 @@ transition: all 0.2s;
     box-shadow: 0 0 0 2px var(--bg-color), 0 0 0 4px var(--primary-color);
 }
 
-        .color-option[data-color="default"] {
-            background: linear-gradient(135deg, #0d6efd 50%, #1a1a1a 50%);
-        }
-        .color-option[data-color="blue"] {
-            background: #1976d2;
-        }
-        .color-option[data-color="green"] {
-            background: #2e7d32;
-        }
+.color-option[data-color="default"] {
+	background: linear-gradient(135deg, #0d6efd 50%, #1a1a1a 50%);
+}
+.color-option[data-color="blue"] {
+	background: #1976d2;
+}
+.color-option[data-color="green"] {
+	background: #2e7d32;
+}
 
 
-        .card-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
+.card-container {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+	gap: 1.5rem;
+	margin-top: 2rem;
+}
 
-        .card {
-            background-color: var(--card-bg);
-            border: var(--card-bord) var(--border-color);
-            border-radius: var(--rcard);
-            padding: 1rem;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-			transition: all 0.2s;
-        }
+.card {
+	background-color: var(--card-bg);
+	border: var(--card-bord) var(--border-color);
+	border-radius: var(--rcard);
+	padding: 1rem;
+	box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+	transition: all 0.2s;
+}
 
 .card:hover {
 	transform: translateY(calc(-1 / 2 * var(--rcard)));
 }
 
-        .card h3 { color: var(--primary-color); margin-bottom: 0.8rem; }
-        .btn {
-            display: inline-block;
-            margin-top: 1rem;
-            padding: 0.5rem 1.2rem;
-            background-color: var(--primary-color);
-            color: #fff;
-            border: none;
-            border-radius: 2rem;
-            cursor: var(--pointer);
-            text-decoration: none;
-            font-size: 0.9rem;
-        }
-        .btn:hover { background-color: var(--primary-hover); }
+.card h3 {
+	color: var(--primary-color);
+	margin-bottom: 0.8rem;
+}
+
+.btn {
+	display: inline-block;
+	padding: 6px 12px;
+	background-color: var(--primary-color);
+	color: #fff;
+	border: none;
+	border-radius: 1rem;
+	cursor: var(--pointer);
+	text-decoration: none;
+	font-size: 0.9rem;
+}
+
+.btn:hover { 
+	background-color: var(--primary-hover);
+}
