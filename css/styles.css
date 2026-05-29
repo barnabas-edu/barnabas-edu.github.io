@@ -13,6 +13,52 @@ html {
 	overflow-y: scroll;
 }
 
+::-webkit-scrollbar {
+  width: 16px;
+}
+::-webkit-scrollbar:horizontal {
+  height: 16px;
+}
+
+::-webkit-scrollbar-corner {
+  background: #dfdfdf;
+}
+
+::-webkit-scrollbar-track {
+  background-image: svg-load("/theme/W95/icon/scrollbar-background.svg");
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #dfdfdf;
+  box-shadow: inset -1px -1px #0a0a0a,
+    inset 1px 1px #ffffff, inset -2px -2px #808080,
+    inset 2px 2px #dfdfdf;
+}
+
+::-webkit-scrollbar-button:horizontal:start:decrement,
+::-webkit-scrollbar-button:horizontal:end:increment,
+::-webkit-scrollbar-button:vertical:start:decrement,
+::-webkit-scrollbar-button:vertical:end:increment {
+  display: block;
+}
+
+::-webkit-scrollbar-button:vertical:start {
+  height: 16px;
+  background-image: svg-load("/theme/W95/icon/button-up.svg");
+}
+::-webkit-scrollbar-button:vertical:end {
+  height: 16px;
+  background-image: svg-load("/theme/W95/icon/button-down.svg");
+}
+::-webkit-scrollbar-button:horizontal:start {
+  width: 16px;
+  background-image: svg-load("/theme/W95/icon/button-left.svg");
+}
+::-webkit-scrollbar-button:horizontal:end {
+  width: 16px;
+  background-image: svg-load("/theme/W95/icon/button-right.svg");
+}
+
 footer {
             text-align: center;
             padding: 2rem;
