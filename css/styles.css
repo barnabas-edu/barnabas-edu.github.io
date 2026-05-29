@@ -51,7 +51,8 @@ body {
 	grid-template-columns: 1fr auto 1fr;
 	align-items: center; /* Függőleges középrezárás */
 	background-color: var(--header-bg);
-	padding: 10px 20px;
+	height: 4rem;
+	padding-inline: 20px;
 	color: white;
 	box-shadow: var(--navshadow);
 }
