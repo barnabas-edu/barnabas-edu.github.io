@@ -272,9 +272,13 @@ img {
 
 /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 767px) {
-  .column {
+	.navbar {
+	display: flex;
+	justify-content: space-between;
+	}
+	.column {
     width: 100%;
-  }
+  	}
 }
 
 .card-column {
@@ -506,10 +510,6 @@ table, th, td {
   .nav {
     height: calc(var(--header-height) + 1.5rem); /* 4.5rem */
   }
-
-	.navbar {
-		display: flex;
-		justify-content: space-between;
 	}
   .nav__img {
     display: none;
