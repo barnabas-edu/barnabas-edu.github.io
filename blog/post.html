@@ -105,7 +105,7 @@
       // Tartalom megjelenítése
       document.getElementById('postContent').innerHTML = `
         <h2 id="postTitle">${post.title.$t}</h2>
-        <span class="post-date">${new Date(post.published.$t).toLocaleDateString('hu-HU', {
+        <span class="post-date">📅 ${new Date(post.published.$t).toLocaleDateString('hu-HU', {
           year: 'numeric',
           month: 'long',
           day: 'numeric'
