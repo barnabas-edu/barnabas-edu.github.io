@@ -546,7 +546,8 @@ table, th, td {
 @media screen and (min-width: 576px) {
   .nav__list {
     justify-content: center;
-    column-gap: 3rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
   }
   .nav__menu {
 	  transition: background 0.2s, color 0.2s;
@@ -573,6 +574,10 @@ table, th, td {
   .nav__menu {
 	  transition: background 0.2s, color 0.2s;
 	}
+    .nav__list {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
   li.nav__item {
     padding: 8px;
   }
