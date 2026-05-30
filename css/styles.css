@@ -495,7 +495,6 @@ table, th, td {
 
 .nav__name {
   font-size: 13px;
-  /* display: none;*/ /* Minimalist design, hidden labels */
 }
 
 .nav__icon {
@@ -549,7 +548,7 @@ table, th, td {
 	}
 }
 
-@media screen and (min-width: 767px) {
+@media screen and (min-width: 768px) {
   body {
     margin: 0;
   }
@@ -569,12 +568,8 @@ table, th, td {
   .nav__menu {
 	  transition: background 0.2s, color 0.2s;
 	}
-  .nav__name {
-    font-size: 13px;
-    /* display: block; */ /* Minimalist design, visible labels */
-  }
-  .nav__list {
-    column-gap: 1rem;
+  li.nav__item {
+    padding: 8px;
   }
 
   /* First design, remove if you choose the minimalist design */
