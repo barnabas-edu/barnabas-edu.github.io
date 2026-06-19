@@ -856,7 +856,6 @@ li.nav__item {
 /* Remove if you choose, the minimalist design */
 @media screen and (max-width: 320px) {
 	.nav__list {
-		column-gap: 10px;
 	}
 }
 
