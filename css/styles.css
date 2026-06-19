@@ -108,7 +108,10 @@
 		--pointer: url(/tanitas/Cursors/W95/Cursor_15.cur), pointer;
 		--font: Windows;
 		--nav-menu-p: 0 0;
-		--nav-items: 2px 2px 0px #ad2d2d inset, -2px -2px 0px #808080 inset;
+		--nav-items: inset -1px -1px #0a0a0a, inset 1px 1px #fff, inset -2px -2px grey, inset 2px 2px #dfdfdf;
+		--nav-items-hover: inset -1px -1px #fff, inset 1px 1px #0a0a0a, inset -2px -2px #dfdfdf, inset 2px 2px grey;
+		--nav-item-text-hover: white;
+		--nav-item-text-hover-shadow: 1px 1px #222;
 	}
 	[data-color-theme="retro"][data-mode="dark"] {
 		--card-bord: 2px solid; 
@@ -776,7 +779,9 @@ li.nav__item {
 	box-shadow: var(--nav-items);
 }
   li.nav__item:hover {
-    color: var(--active-bg);
+    box-shadow: var(--nav-items-hover);
+    text-shadow: var(--nav-item-text-hover-shadow);
+    color: var(--nav-item-text-hover);
 }
 
 @media screen and (max-width: 767px) {
