@@ -9,29 +9,45 @@ class MyHeader extends HTMLElement {
 
                         <li class="nav__item">
                             <a href="/suli/" class="nav__link">
-                                <i class='bx bx-home-alt nav__icon'></i>
                                 <span class="nav__name">Kezdőlap</span>
                             </a>
                         </li>
 
                         <li class="nav__item">
                             <a href="/tananyagok/" class="nav__link">
-                                <i class='bx bx-book nav__icon'></i>
                                 <span class="nav__name">5. A</span>
                             </a>
                         </li>
 
                         <li class="nav__item">
                             <a href="/szamologep/" class="nav__link">
-                                <i class='bx bx-calculator nav__icon'></i>
                                 <span class="nav__name">5. B</span>
                             </a>
                         </li>
 						
 						<li class="nav__item">
                             <a href="/rolam/" class="nav__link">
-                                <i class='bx bx-user nav__icon'></i>
                                 <span class="nav__name">5. C</span>
+                            </a>
+                        </li>
+						<li class="nav__item">
+                            <a href="/rolam/" class="nav__link">
+                                <span class="nav__name">6. A</span>
+                            </a>
+                        </li>
+						<li class="nav__item">
+                            <a href="/rolam/" class="nav__link">
+                                <span class="nav__name">6. B</span>
+                            </a>
+                        </li>
+						<li class="nav__item">
+                            <a href="/rolam/" class="nav__link">
+                                <span class="nav__name">6. C</span>
+                            </a>
+                        </li>
+						<li class="nav__item">
+                            <a href="/rolam/" class="nav__link">
+                                <span class="nav__name">7. A</span>
                             </a>
                         </li>
                     </ul>
