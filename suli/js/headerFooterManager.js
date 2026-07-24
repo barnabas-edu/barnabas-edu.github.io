@@ -3,7 +3,7 @@ class MyHeader extends HTMLElement {
 		this.innerHTML = `
 		<header class="header" id="header">
         <div class="navbar">
-                <div><a href="https://barnabas-edu.github.io" class="nav__logo">Horváth Barnabás Oldala</a></div>
+                <div><a href="/suli/" class="nav__logo">Horváth Barnabás Oldala</a></div>
                 <div class="nav__menu" id="nav-menu">
                     <ul class="nav__list">
 
@@ -14,7 +14,7 @@ class MyHeader extends HTMLElement {
                         </li>
 
                         <li class="nav__item" id="osztaly">
-                            <a href="/tananyagok/" class="nav__link">
+                            <a href="/suli/5A" class="nav__link">
                                 <span class="nav__name">5. A</span>
                             </a>
                         </li>
