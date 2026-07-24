@@ -22,3 +22,9 @@ li#osztalyok {
     display: block;
 }
 }
+
+@media screen and (max-width: 320px) {
+    .nav__name {
+        display: block;
+    }
+}
