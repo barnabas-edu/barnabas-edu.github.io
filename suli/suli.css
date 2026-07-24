@@ -33,6 +33,12 @@ li#osztalyok {
     max-width: 800px;
     margin: 0 auto;
 }
+div#post-list {
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+    padding-top: 1rem;
+}
         .post-title {
             font-size: 1.6rem;
             font-weight: 600;
