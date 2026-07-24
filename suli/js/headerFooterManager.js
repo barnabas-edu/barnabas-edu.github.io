@@ -13,30 +13,30 @@ class MyHeader extends HTMLElement {
                             </a>
                         </li>
 
-                        <li class="nav__item">
-                            <a href="/tananyagok/" class="nav__link" id="osztaly">
+                        <li class="nav__item" id="osztaly">
+                            <a href="/tananyagok/" class="nav__link">
                                 <span class="nav__name">5. A</span>
                             </a>
                         </li>
 
-                        <li class="nav__item">
-                            <a href="/szamologep/" class="nav__link" id="osztaly">
+                        <li class="nav__item" id="osztaly">
+                            <a href="/szamologep/" class="nav__link">
                                 <span class="nav__name">5. B</span>
                             </a>
                         </li>
 						
-						<li class="nav__item">
-                            <a href="/rolam/" class="nav__link" id="osztaly">
+						<li class="nav__item" id="osztaly">
+                            <a href="/rolam/" class="nav__link">
                                 <span class="nav__name">5. C</span>
                             </a>
                         </li>
-						<li class="nav__item">
-                            <a href="/rolam/" class="nav__link" id="osztaly">
+						<li class="nav__item" id="osztaly">
+                            <a href="/rolam/" class="nav__link">
                                 <span class="nav__name">6. A</span>
                             </a>
                         </li>
-						<li class="nav__item">
-                            <a href="/rolam/" class="nav__link" id="osztaly">
+						<li class="nav__item" id="osztaly">
+                            <a href="/rolam/" class="nav__link">
                                 <span class="nav__name">6. B</span>
                             </a>
                         </li>
@@ -45,13 +45,13 @@ class MyHeader extends HTMLElement {
                                 <span class="nav__name">6. C</span>
                             </a>
                         </li>
-						<li class="nav__item">
-                            <a href="/rolam/" class="nav__link" id="osztaly">
+						<li class="nav__item" id="osztaly">
+                            <a href="/rolam/" class="nav__link">
                                 <span class="nav__name">7. A</span>
                             </a>
                         </li>
-						<li class="nav__item">
-                            <a href="/rolam/" class="nav__link" id="osztalyok">
+						<li class="nav__item" id="osztalyok">
+                            <a href="/rolam/" class="nav__link">
                                 <span class="nav__name">Osztályok</span>
                             </a>
                         </li>
