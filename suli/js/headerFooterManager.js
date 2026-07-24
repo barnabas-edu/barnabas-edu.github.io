@@ -14,40 +14,45 @@ class MyHeader extends HTMLElement {
                         </li>
 
                         <li class="nav__item">
-                            <a href="/tananyagok/" class="nav__link">
+                            <a href="/tananyagok/" class="nav__link" id="osztaly">
                                 <span class="nav__name">5. A</span>
                             </a>
                         </li>
 
                         <li class="nav__item">
-                            <a href="/szamologep/" class="nav__link">
+                            <a href="/szamologep/" class="nav__link" id="osztaly">
                                 <span class="nav__name">5. B</span>
                             </a>
                         </li>
 						
 						<li class="nav__item">
-                            <a href="/rolam/" class="nav__link">
+                            <a href="/rolam/" class="nav__link" id="osztaly">
                                 <span class="nav__name">5. C</span>
                             </a>
                         </li>
 						<li class="nav__item">
-                            <a href="/rolam/" class="nav__link">
+                            <a href="/rolam/" class="nav__link" id="osztaly">
                                 <span class="nav__name">6. A</span>
                             </a>
                         </li>
 						<li class="nav__item">
-                            <a href="/rolam/" class="nav__link">
+                            <a href="/rolam/" class="nav__link" id="osztaly">
                                 <span class="nav__name">6. B</span>
                             </a>
                         </li>
 						<li class="nav__item">
-                            <a href="/rolam/" class="nav__link">
+                            <a href="/rolam/" class="nav__link" id="osztaly">
                                 <span class="nav__name">6. C</span>
                             </a>
                         </li>
 						<li class="nav__item">
-                            <a href="/rolam/" class="nav__link">
+                            <a href="/rolam/" class="nav__link" id="osztaly">
                                 <span class="nav__name">7. A</span>
+                            </a>
+                        </li>
+						<li class="nav__item">
+                            <a href="/rolam/" class="nav__link" id="osztalyok">
+                                <span class="nav__name">Osztályok</span>
                             </a>
                         </li>
                     </ul>
