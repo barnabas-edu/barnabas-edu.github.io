@@ -40,8 +40,8 @@ class MyHeader extends HTMLElement {
                                 <span class="nav__name">6. B</span>
                             </a>
                         </li>
-						<li class="nav__item">
-                            <a href="/rolam/" class="nav__link" id="osztaly">
+						<li class="nav__item" id="osztaly">
+                            <a href="/rolam/" class="nav__link">
                                 <span class="nav__name">6. C</span>
                             </a>
                         </li>
