@@ -13,6 +13,9 @@
 li#osztalyok {
     display: none;
 }
+.nav__name {
+    font-size: 14px;
+}
 
 @media screen and (max-width: 767px) {
     li#osztaly {
