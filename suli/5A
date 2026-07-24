@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+        <meta charset="utf-8">
+        <meta name="author" content="Horváth Barnabás">
+        <meta name="description" content="Horváth Barnabás tanítási honlapja">
+        <meta name="keywords" content="HorváthBarnabás, Horváth, Barnabás, Horvath, Barnabas, Horvath Barnabas, HB, tanítás, tanitas, teaching, teach">
+        <meta content="#1658ae" name="msapplication-TileColor">
+	<meta content="#1658ae" name="theme-color">
+	<link rel="icon" type="image/png" href="/theme/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="/theme/favicon.svg" />
+<link rel="shortcut icon" href="theme/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/theme/apple-touch-icon.png" />
+<meta name="apple-mobile-web-app-title" content="MyWebSite" />
+<link rel="manifest" href="/theme/site.webmanifest" />
+        <title>Horváth Barnabás Oldala</title>
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/theme-switcher.css">
+	<link rel="stylesheet" href="/suli/suli.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+	<meta name="theme-color" content="">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta content="var(--header-bg)" name="msapplication-TileColor">
+</head>
+<body>
+	<div class="wrapper">
+<script src="/suli/js/headerFooterManager.js"></script>
+	<my-header></my-header>
+<main>
+	<div class="container">
+        <header>
+            <h1>📚 5. A osztály oldala</h1>
+            <p>Kattints egy bejegyzés címére a teljes tartalomért</p>
+        </header>
+
+        <div id="post-list">
+            <div class="loading">⏳ Bejegyzések betöltése…</div>
+        </div>
+
+        <div id="pagination" class="pagination"></div>
+    </div>
+
+    <script>
+        // ----- Konfiguráció -----
+        const MAX_RESULTS = 5;
+        const BLOG_URL = 'https://hbsuli.blogspot.com';
+        const LABEL = '2026-5A';
+
+        // ----- Állapot -----
+        let currentPage = 1;
+        let totalResults = 0;
+        let isLoading = false;
+
+        const postList = document.getElementById('post-list');
+        const paginationDiv = document.getElementById('pagination');
+
+        /**
+         * Bejegyzések betöltése az API-ról
+         */
+        function loadPosts(page) {
+            if (isLoading) return;
+            isLoading = true;
+
+            const startIndex = (page - 1) * MAX_RESULTS + 1;
+            postList.innerHTML = `<div class="loading">⏳ Bejegyzések betöltése…</div>`;
+            paginationDiv.innerHTML = '';
+
+            const script = document.createElement('script');
+            const callbackName = 'handlePosts_' + Date.now();
+            window[callbackName] = function(json) {
+                processPosts(json, page);
+                delete window[callbackName];
+                isLoading = false;
+            };
+
+            script.onerror = function() {
+                postList.innerHTML = `
+                        <div class="error">
+                            ❌ Hiba történt a bejegyzések betöltése közben.<br>
+                            <small>Ellenőrizd a blog elérhetőségét, vagy próbáld újra később.</small>
+                        </div>
+                    `;
+                paginationDiv.innerHTML = '';
+                isLoading = false;
+                delete window[callbackName];
+            };
+
+            script.src = `${BLOG_URL}/feeds/posts/default/-/${LABEL}?alt=json-in-script&callback=${callbackName}&start-index=${startIndex}&max-results=${MAX_RESULTS}`;
+            document.head.appendChild(script);
+        }
+
+        /**
+         * A kapott JSON feldolgozása
+         */
+        function processPosts(json, page) {
+            if (!json.feed || !json.feed.entry || json.feed.entry.length === 0) {
+                postList.innerHTML = `<div class="no-posts">📭 Nincsenek „5A” címkével ellátott bejegyzések ezen az oldalon.</div>`;
+                paginationDiv.innerHTML = '';
+                return;
+            }
+
+            totalResults = json.feed.openSearch$totalResults ? parseInt(json.feed.openSearch$totalResults.$t, 10) : 0;
+            const totalPages = Math.ceil(totalResults / MAX_RESULTS);
+
+            let html = '';
+            json.feed.entry.forEach(entry => {
+                const title = entry.title.$t || 'Nincs cím';
+
+                // ----- POST ID KINYERÉSE -----
+                // Az entry.id formátuma: tag:blogger.com,1999:blog-123456789.post-987654321
+                const postId = entry.id.$t.split('post-')[1] || '';
+
+                // Link a post.html-re az ID paraméterrel
+                const link = `post.html?postId=${postId}`;
+
+                const rawDate = entry.published ? entry.published.$t : null;
+                let dateStr = 'Ismeretlen dátum';
+                if (rawDate) {
+                    const d = new Date(rawDate);
+                    dateStr = d.toLocaleDateString('hu-HU', {
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric'
+                    });
+                }
+
+                let author = 'Ismeretlen szerző';
+                if (entry.author && entry.author.length > 0 && entry.author[0].name) {
+                    author = entry.author[0].name.$t || 'Ismeretlen szerző';
+                }
+
+                // Rövid tartalom (csak a lista megjelenítéséhez)
+                let content = '';
+                if (entry.summary) {
+                    content = entry.summary.$t || '';
+                } else if (entry.content) {
+                    content = entry.content.$t || '';
+                }
+
+                html += `
+                        <div class="post">
+                            <h2 class="post-title">
+                                <a href="${link}">${title}</a>
+                            </h2>
+                            <div class="post-meta">
+                                📅 ${dateStr}
+                            </div>
+                            <div class="post-content">${content}</div>
+                        </div>
+                    `;
+            });
+
+            postList.innerHTML = html;
+
+            // Lapozó gombok
+            const prevDisabled = (page <= 1);
+            const nextDisabled = (page >= totalPages || totalPages === 0);
+
+            let paginationHtml = `
+                    <button onclick="loadPosts(${page - 1})" ${prevDisabled ? 'disabled' : ''}>
+                        ⬅ Előző oldal
+                    </button>
+                    <span class="page-info">${page} / ${totalPages > 0 ? totalPages : 1}</span>
+                    <button onclick="loadPosts(${page + 1})" ${nextDisabled ? 'disabled' : ''}>
+                        Következő oldal ➡
+                    </button>
+                `;
+
+            if (totalResults === 0) {
+                paginationHtml = `<span class="page-info">Nincs találat</span>`;
+            }
+
+            paginationDiv.innerHTML = paginationHtml;
+            currentPage = page;
+        }
+
+        // ----- Indítás -----
+        loadPosts(1);
+    </script>
+</main>
+	</div>
+	<script src="/js/theme-switcher.js"></script>
+</body>
+</html>
