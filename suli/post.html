@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+        <meta charset="utf-8">
+        <meta name="author" content="Horváth Barnabás">
+        <meta name="description" content="Horváth Barnabás tanítási honlapja">
+        <meta name="keywords" content="HorváthBarnabás, Horváth, Barnabás, Horvath, Barnabas, Horvath Barnabas, HB, tanítás, tanitas, teaching, teach">
+        <meta content="#1658ae" name="msapplication-TileColor">
+	<meta content="#1658ae" name="theme-color">
+	<link rel="icon" type="image/png" href="/theme/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="/theme/favicon.svg" />
+<link rel="shortcut icon" href="theme/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/theme/apple-touch-icon.png" />
+<meta name="apple-mobile-web-app-title" content="MyWebSite" />
+<link rel="manifest" href="/theme/site.webmanifest" />
+        <title>Horváth Barnabás Oldala</title>
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/theme-switcher.css">
+	<link rel="stylesheet" href="/suli/suli.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+	<meta name="theme-color" content="">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta content="var(--header-bg)" name="msapplication-TileColor">
+</head>
+<body>
+	<div class="wrapper">
+<script src="/suli/js/headerFooterManager.js"></script>
+	<my-header></my-header>
+<main>
+	<div class="container">
+        <div id="post-container">
+            <div class="loading">⏳ Bejegyzés betöltése…</div>
+        </div>
+
+        <footer>
+            &copy; 2026 · Suli Blog
+        </footer>
+    </div>
+
+    <script>
+        // ----- URL-BŐL KINYERJÜK A POST ID-T -----
+        const urlParams = new URLSearchParams(window.location.search);
+        const postId = urlParams.get('postId');
+
+        const BLOG_URL = 'https://hbsuli.blogspot.com';
+        const container = document.getElementById('post-container');
+
+        if (!postId) {
+            container.innerHTML = `<div class="not-found">❓ Nincs megadva bejegyzésazonosító.</div>`;
+        } else {
+            // ----- 1. LÉPÉS: KÖZVETLEN LEKÉRÉS A POST VÉGPONTRÓL -----
+            function loadPostDirect() {
+                const script = document.createElement('script');
+                const callbackName = 'loadPostDirect_' + Date.now();
+
+                window[callbackName] = function(json) {
+                    if (json.feed && json.feed.entry) {
+                        // Sikeres közvetlen lekérés
+                        displayPost(json.feed.entry);
+                        delete window[callbackName];
+                        return;
+                    }
+                    // Ha nem sikerült, áttérünk a tartalék megoldásra
+                    delete window[callbackName];
+                    loadPostFallback();
+                };
+
+                script.onerror = function() {
+                    // Ha a script betöltése hibás, szintén áttérünk a tartalékra
+                    delete window[callbackName];
+                    loadPostFallback();
+                };
+
+                // Közvetlen API hívás a postId-val
+                script.src = `${BLOG_URL}/feeds/posts/default/${postId}?alt=json-in-script&callback=${callbackName}`;
+                document.head.appendChild(script);
+            }
+
+            // ----- 2. LÉPÉS (TARTALÉK): ÖSSZES POSZT LEKÉRÉSE (CÍMKE NÉLKÜL) ÉS SZŰRÉS -----
+            function loadPostFallback() {
+                const script = document.createElement('script');
+                const callbackName = 'loadPostFallback_' + Date.now();
+
+                window[callbackName] = function(json) {
+                    if (!json.feed || !json.feed.entry || json.feed.entry.length === 0) {
+                        container.innerHTML = `
+                                <div class="not-found">
+                                    🔍 A kért bejegyzés (azonosító: ${postId}) nem található.<br>
+                                    <small>Lehet, hogy a bejegyzés nem létezik, vagy a blog nem elérhető.</small>
+                                </div>
+                            `;
+                        delete window[callbackName];
+                        return;
+                    }
+
+                    // Keresés a postId alapján az összes bejegyzés között
+                    let foundEntry = null;
+                    for (let entry of json.feed.entry) {
+                        const entryId = entry.id.$t;
+                        const extractedId = entryId.split('post-')[1] || '';
+                        if (extractedId === postId) {
+                            foundEntry = entry;
+                            break;
+                        }
+                    }
+
+                    if (foundEntry) {
+                        displayPost(foundEntry);
+                    } else {
+                        container.innerHTML = `
+                                <div class="not-found">
+                                    🔍 A kért bejegyzés (azonosító: ${postId}) nem található a blogban.<br>
+                                    <small>Ellenőrizd az azonosítót, vagy próbáld újra később.</small>
+                                </div>
+                            `;
+                    }
+                    delete window[callbackName];
+                };
+
+                script.onerror = function() {
+                    container.innerHTML = `
+                            <div class="error">
+                                ❌ Hiba történt a bejegyzések betöltése közben.<br>
+                                <small>Ellenőrizd a blog elérhetőségét, vagy próbáld újra később.</small>
+                            </div>
+                        `;
+                    delete window[callbackName];
+                };
+
+                // Összes poszt lekérése (címke nélkül, max 500)
+                script.src = `${BLOG_URL}/feeds/posts/default?alt=json-in-script&callback=${callbackName}&max-results=500`;
+                document.head.appendChild(script);
+            }
+
+            // ----- BEJEGYZÉS MEGJELENÍTÉSE -----
+            function displayPost(entry) {
+                const title = entry.title ? entry.title.$t : 'Nincs cím';
+
+                const rawDate = entry.published ? entry.published.$t : null;
+                let dateStr = 'Ismeretlen dátum';
+                if (rawDate) {
+                    const d = new Date(rawDate);
+                    dateStr = d.toLocaleDateString('hu-HU', {
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric'
+                    });
+                }
+
+                let author = 'Ismeretlen szerző';
+                if (entry.author && entry.author.length > 0 && entry.author[0].name) {
+                    author = entry.author[0].name.$t || 'Ismeretlen szerző';
+                }
+
+                let content = '';
+                if (entry.content) {
+                    content = entry.content.$t || '';
+                } else if (entry.summary) {
+                    content = entry.summary.$t || '';
+                }
+
+                let labels = '';
+                if (entry.category && entry.category.length > 0) {
+                    const labelNames = entry.category.map(cat => cat.term).join(', ');
+                    labels = `<p><strong>Címkék:</strong> ${labelNames}</p>`;
+                }
+
+                const html = `
+                        <div class="post-full">
+                            <h1>${title}</h1>
+                            <div class="meta">
+                                📅 ${dateStr} &nbsp;·&nbsp; ✍️ <span class="author">${author}</span>
+                                ${labels ? '<br>' + labels : ''}
+                            </div>
+                            <div class="content">${content}</div>
+                        </div>
+                    `;
+
+                container.innerHTML = html;
+            }
+
+            // ----- INDÍTÁS: ELŐSZÖR A KÖZVETLEN LEKÉRÉSSEL PRÓBÁLKOZUNK -----
+            loadPostDirect();
+        }
+    </script>
+</main>
+	</div>
+	<script src="/js/theme-switcher.js"></script>
+</body>
+</html>
