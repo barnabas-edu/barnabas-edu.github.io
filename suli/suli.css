@@ -1,1 +1,24 @@
+.navbar {
+    display: flex;
+    /* grid-template-columns: 1fr auto 1fr; */
+    align-items: center;
+    background-color: var(--header-bg);
+    height: 4rem;
+    padding-inline: 20px;
+    color: white;
+    box-shadow: var(--navshadow);
+    justify-content: space-between;
+}
 
+li#osztalyok {
+    display: none;
+}
+
+@media screen and (max-width: 767px) {
+    li#osztaly {
+    display: none;
+}
+  li#osztalyok {
+    display: block;
+}
+}
