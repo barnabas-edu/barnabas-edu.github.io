@@ -11,12 +11,23 @@
 }
 
 li#osztalyok {
-    display: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .nav__name {
     font-size: 14px;
 }
 
+.hamburger {
+    font-size: 14px;
+    font-weight: 600;
+    background: var(--header-bg);
+    border: 2px solid var(--header-text);
+    border-radius: 40px;
+    padding: 6px;
+    cursor: pointer;
+}
 @media screen and (max-width: 767px) {
     li#osztaly {
     display: none;
