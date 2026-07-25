@@ -5,10 +5,12 @@ class MyHeader extends HTMLElement {
         <div class="navbar">
                 <div><a href="/suli/" class="nav__logo">Horváth Barnabás Oldala</a></div>
                <div class="nav__menu" id="nav-menu">
-				    <ul>Kezdőlap</ul>
-                    <ul class="nav__list" id="navLinks">
+				    <ul class="nav__list" id="navLinks"><li class="nav__item">
+                            <a href="/suli/" class="nav__link">Kezdőlap</a>
+                        </li>
+                        
                         <li class="nav__item" id="osztaly">
-                            <a href="/suli/5A" class="nav__link">5. A</span></a>
+                            <a href="/suli/5A" class="nav__link">5. A</a>
                         </li>
 
                         <li class="nav__item" id="osztaly">
@@ -27,15 +29,12 @@ class MyHeader extends HTMLElement {
 						<li class="nav__item" id="osztaly">
                             <a href="/suli/6C" class="nav__link">6. C</a>
                         </li>
-						<li class="nav__item" id="osztaly">
+						<li class="nav__item" id="osztalyok">
                             <a href="/suli/7A" class="nav__link">7. A</a>
                         </li>
-              	  </ul>
-						
-						<div class="hamburger" id="hamburger" aria-label="Menü megnyitása">
-							Osztályok
-						</div>
-                        
+              	  <li class="nav__item" id="osztaly">
+                            <a href="/suli/oszt" class="nav__link">Osztályok</a>
+                        </li></ul>
                 </div>
 	<div class="theme-button-place">
         <div class="theme-button" id="themeMenuButton">
