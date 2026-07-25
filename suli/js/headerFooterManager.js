@@ -4,58 +4,38 @@ class MyHeader extends HTMLElement {
 		<header class="header" id="header">
         <div class="navbar">
                 <div><a href="/suli/" class="nav__logo">Horváth Barnabás Oldala</a></div>
-                <div class="nav__menu" id="nav-menu">
-                    <ul class="nav__list">
-
-                        <li class="nav__item">
-                            <a href="/suli/" class="nav__link">
-                                <span class="nav__name">Kezdőlap</span>
-                            </a>
+               <div class="nav__menu" id="nav-menu">
+				    <ul>Kezdőlap</ul>
+                    <ul class="nav__list" id="navLinks">
+                        <li class="nav__item" id="osztaly">
+                            <a href="/suli/5A" class="nav__link">5. A</span></a>
                         </li>
 
                         <li class="nav__item" id="osztaly">
-                            <a href="/suli/5A" class="nav__link">
-                                <span class="nav__name">5. A</span>
-                            </a>
-                        </li>
-
-                        <li class="nav__item" id="osztaly">
-                            <a href="suli/5B" class="nav__link">
-                                <span class="nav__name">5. B</span>
-                            </a>
+                            <a href="suli/5B" class="nav__link">5. B</a>
                         </li>
 						
 						<li class="nav__item" id="osztaly">
-                            <a href="suli/5C" class="nav__link">
-                                <span class="nav__name">5. C</span>
-                            </a>
+                            <a href="suli/5C" class="nav__link">5. C </a>
                         </li>
 						<li class="nav__item" id="osztaly">
-                            <a href="suli/6A" class="nav__link">
-                                <span class="nav__name">6. A</span>
-                            </a>
+                            <a href="suli/6A" class="nav__link">6. A</a>
                         </li>
 						<li class="nav__item" id="osztaly">
-                            <a href="/suli/6B" class="nav__link">
-                                <span class="nav__name">6. B</span>
-                            </a>
+                            <a href="/suli/6B" class="nav__link">6. B</a>
                         </li>
 						<li class="nav__item" id="osztaly">
-                            <a href="/suli/6C" class="nav__link">
-                                <span class="nav__name">6. C</span>
-                            </a>
+                            <a href="/suli/6C" class="nav__link">6. C</a>
                         </li>
 						<li class="nav__item" id="osztaly">
-                            <a href="/suli/7A" class="nav__link">
-                                <span class="nav__name">7. A</span>
-                            </a>
+                            <a href="/suli/7A" class="nav__link">7. A</a>
                         </li>
-						<li class="nav__item" id="osztalyok">
-                            <div class="hamburger">
-					            Osztályok
-					        </div>
-                        </li>
-                    </ul>
+              	  </ul>
+						
+						<div class="hamburger" id="hamburger" aria-label="Menü megnyitása">
+							Osztályok
+						</div>
+                        
                 </div>
 	<div class="theme-button-place">
         <div class="theme-button" id="themeMenuButton">
