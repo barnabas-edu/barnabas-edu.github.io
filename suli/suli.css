@@ -11,7 +11,7 @@
 }
 
 li#osztalyok {
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
 }
@@ -33,7 +33,7 @@ li#osztalyok {
     display: none;
 }
   li#osztalyok {
-    display: block;
+    display: flex;
 }
 }
 
