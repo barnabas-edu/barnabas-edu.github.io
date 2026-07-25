@@ -1,44 +1,35 @@
-(function() {
-        // Hamburger elemek kiválasztása
-        const hamburger = document.querySelector(".hamburger");
-        const navMenu = document.querySelector(".nav__list");
+const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+        const overlay = document.getElementById('overlay');
 
-        if (!hamburger || !navMenu) return;
+        function toggleMenu() {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('active');
+            overlay.classList.toggle('active');
 
-        // Nyitás / zárás kattintásra
-        hamburger.addEventListener("click", (e) => {
-            e.stopPropagation();
-            hamburger.classList.toggle("active");
-            navMenu.classList.toggle("active");
+            // Scroll tiltása, amikor a menü nyitva van
+            document.body.style.overflow =
+                navLinks.classList.contains('active') ? 'hidden' : '';
+        }
+
+        function closeMenu() {
+            hamburger.classList.remove('active');
+            navLinks.classList.remove('active');
+            overlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        hamburger.addEventListener('click', toggleMenu);
+        overlay.addEventListener('click', closeMenu);
+
+        // Menü bezárása, ha egy linkre kattintanak
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', closeMenu);
         });
 
-        // Ha bármelyik menüpontra kattintanak, zárjuk be a mobil menüt
-        const navLinks = document.querySelectorAll(".nav__link");
-        navLinks.forEach(link => {
-            link.addEventListener("click", () => {
-                hamburger.classList.remove("active");
-                navMenu.classList.remove("active");
-            });
-        });
-
-        // Kattintás az oldal bármely más pontjára → bezárás (jobb UX)
-        document.addEventListener("click", (event) => {
-            const isClickInsideNav = navMenu.contains(event.target);
-            const isClickOnHamburger = hamburger.contains(event.target);
-            
-            if (navMenu.classList.contains("active") && !isClickInsideNav && !isClickOnHamburger) {
-                hamburger.classList.remove("active");
-                navMenu.classList.remove("active");
+        // ESC billentyűvel is bezárható
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && navLinks.classList.contains('active')) {
+                closeMenu();
             }
         });
-
-        // Ablak átméretezésekor, ha desktop méretre vált, biztosítsuk, hogy a menü ne maradjon nyitva
-        window.addEventListener("resize", () => {
-            if (window.innerWidth > 768) {
-                if (navMenu.classList.contains("active")) {
-                    hamburger.classList.remove("active");
-                    navMenu.classList.remove("active");
-                }
-            }
-        });
-    })();
