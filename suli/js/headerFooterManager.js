@@ -51,9 +51,9 @@ class MyHeader extends HTMLElement {
                             </a>
                         </li>
 						<li class="nav__item" id="osztalyok">
-                            <a href="/suli/oszt.html" class="nav__link">
-                                <span class="nav__name">Osztályok</span>
-                            </a>
+                            <div class="hamburger">
+					            Osztályok
+					        </div>
                         </li>
                     </ul>
                 </div>
