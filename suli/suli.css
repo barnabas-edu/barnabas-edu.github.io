@@ -28,6 +28,19 @@ li#osztalyok {
     padding: 6px;
     cursor: pointer;
 }
+@media screen and (min-width: 576px) {
+    .nav__menu {
+        display: flex;
+        transition: background 0.2s, color 0.2s;
+        justify-items: unset;
+        justify-content: center;
+        flex-direction: row;
+        align-content: center;
+        align-items: center;
+        font-size: 14px;
+        font-weight: 600;
+    }
+}
 @media screen and (max-width: 767px) {
     li#osztaly {
     display: none;
