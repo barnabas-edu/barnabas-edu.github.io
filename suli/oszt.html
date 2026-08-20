@@ -33,39 +33,30 @@
 	<h1>Osztályok</h1>
 	Ezen az oldalon lesznek megjelenítve az általam tanított osztályok.
 	<script>
-		// Automatikus frissítés figyelővel
+		// Ez a script megkeresi és megjeleníti az összes nav__item class és osztaly id-vel rendelkező elemet
 document.addEventListener('DOMContentLoaded', function() {
-    function frissitOsztalyListat() {
-        const headerNavList = document.querySelector('header .nav__list');
-        const pageNavList = document.querySelector('.nav__list');
+    // Megkeressük az összes nav__item class-szal rendelkező elemet
+    const navItems = document.querySelectorAll('.nav__item');
+    
+    // Kiszűrjük azokat, amelyeknek 'osztaly' az id-je
+    const osztalyItems = Array.from(navItems).filter(item => item.id === 'osztaly');
+    
+    // Megkeressük az oldal nav__list-jét, ahova be szeretnénk szúrni
+    const pageNavList = document.querySelector('.nav__list');
+    
+    if (pageNavList && osztalyItems.length > 0) {
+        // Kiürítjük a jelenlegi listát
+        pageNavList.innerHTML = '';
         
-        if (headerNavList && pageNavList) {
-            // Kikeressük az összes olyan elemet, ami osztály ID-val rendelkezik
-            const osztalyElemek = Array.from(headerNavList.children).filter(child => {
-                return child.id === 'osztaly' || 
-                       child.getAttribute('data-osztaly') === 'true' ||
-                       child.textContent.toLowerCase().includes('osztály');
-            });
-            
-            // Frissítjük az oldal listáját
-            pageNavList.innerHTML = '';
-            osztalyElemek.forEach(elem => {
-                pageNavList.appendChild(elem.cloneNode(true));
-            });
-        }
-    }
-    
-    // Első betöltéskor futtatjuk
-    frissitOsztalyListat();
-    
-    // Figyeljük a DOM változásait
-    const observer = new MutationObserver(frissitOsztalyListat);
-    const header = document.querySelector('header');
-    if (header) {
-        observer.observe(header, { 
-            childList: true, 
-            subtree: true 
+        // Hozzáadjuk a megtalált elemeket
+        osztalyItems.forEach(item => {
+            const clonedItem = item.cloneNode(true);
+            pageNavList.appendChild(clonedItem);
         });
+        
+        console.log(`${osztalyItems.length} osztály elemet találtam és jelenítettem meg.`);
+    } else {
+        console.log('Nem találtam osztály elemeket vagy nav__list konténert.');
     }
 });
 	</script>
