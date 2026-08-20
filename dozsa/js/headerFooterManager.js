@@ -3,37 +3,37 @@ class MyHeader extends HTMLElement {
 		this.innerHTML = `
 		<header class="header" id="header">
         <div class="navbar">
-                <div><a href="/suli/" class="nav__logo">Horváth Barnabás Oldala</a></div>
+                <div><a href="/dozsa/" class="nav__logo">Horváth Barnabás Oldala</a></div>
                <div class="nav__menu" id="nav-menu">
 				    <ul class="nav__list" id="navLinks"><li class="nav__item">
-                            <a href="/suli/" class="nav__link">Kezdőlap</a>
+                            <a href="/dozsa/" class="nav__link">Kezdőlap</a>
                         </li>
                         
                         <li class="nav__item" id="osztaly">
-                            <a href="/suli/5A" class="nav__link">5. A</a>
+                            <a href="/dozsa/5A" class="nav__link">5. A</a>
                         </li>
 
                         <li class="nav__item" id="osztaly">
-                            <a href="suli/5B" class="nav__link">5. B</a>
+                            <a href="/dozsa/5B" class="nav__link">5. B</a>
                         </li>
 						
 						<li class="nav__item" id="osztaly">
-                            <a href="suli/5C" class="nav__link">5. C </a>
+                            <a href="/dozsa/5C" class="nav__link">5. C </a>
                         </li>
 						<li class="nav__item" id="osztaly">
-                            <a href="suli/6A" class="nav__link">6. A</a>
+                            <a href="/dozsa/6A" class="nav__link">6. A</a>
                         </li>
 						<li class="nav__item" id="osztaly">
-                            <a href="/suli/6B" class="nav__link">6. B</a>
+                            <a href="/dozsa/6B" class="nav__link">6. B</a>
                         </li>
 						<li class="nav__item" id="osztaly">
-                            <a href="/suli/6C" class="nav__link">6. C</a>
+                            <a href="/dozsa/6C" class="nav__link">6. C</a>
                         </li>
-						<li class="nav__item" id="osztalyok">
-                            <a href="/suli/7A" class="nav__link">7. A</a>
+						<li class="nav__item" id="osztaly">
+                            <a href="/dozsa/7A" class="nav__link">7. A</a>
                         </li>
-              	  <li class="nav__item" id="osztaly">
-                            <a href="/suli/oszt" class="nav__link">Osztályok</a>
+              	  <li class="nav__item" id="osztalyok">
+                            <a href="/dozsa/oszt" class="nav__link">Osztályok</a>
                         </li></ul>
                 </div>
 	<div class="theme-button-place">
