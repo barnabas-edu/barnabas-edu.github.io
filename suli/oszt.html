@@ -32,6 +32,43 @@
 <main>
 	<h1>Osztályok</h1>
 	Ezen az oldalon lesznek megjelenítve az általam tanított osztályok.
+	<script>
+		// Automatikus frissítés figyelővel
+document.addEventListener('DOMContentLoaded', function() {
+    function frissitOsztalyListat() {
+        const headerNavList = document.querySelector('header .nav__list');
+        const pageNavList = document.querySelector('.nav__list');
+        
+        if (headerNavList && pageNavList) {
+            // Kikeressük az összes olyan elemet, ami osztály ID-val rendelkezik
+            const osztalyElemek = Array.from(headerNavList.children).filter(child => {
+                return child.id === 'osztaly' || 
+                       child.getAttribute('data-osztaly') === 'true' ||
+                       child.textContent.toLowerCase().includes('osztály');
+            });
+            
+            // Frissítjük az oldal listáját
+            pageNavList.innerHTML = '';
+            osztalyElemek.forEach(elem => {
+                pageNavList.appendChild(elem.cloneNode(true));
+            });
+        }
+    }
+    
+    // Első betöltéskor futtatjuk
+    frissitOsztalyListat();
+    
+    // Figyeljük a DOM változásait
+    const observer = new MutationObserver(frissitOsztalyListat);
+    const header = document.querySelector('header');
+    if (header) {
+        observer.observe(header, { 
+            childList: true, 
+            subtree: true 
+        });
+    }
+});
+	</script>
 </main>
 	</div>
 	<script src="/js/theme-switcher.js"></script>
