@@ -3,38 +3,38 @@ class MyHeader extends HTMLElement {
 		this.innerHTML = `
 		<header class="header" id="header">
         <div class="navbar">
-                <div><a href="/suli/" class="nav__logo">Horváth Barnabás Oldala</a></div>
-               <div class="nav__menu" id="nav-menu">
-				    <ul class="nav__list" id="navLinks"><li class="nav__item">
-                            <a href="/suli/" class="nav__link">Kezdőlap</a>
-                        </li>
-                        
-                        <li class="nav__item" id="osztaly">
-                            <a href="/suli/5A" class="nav__link">5. A</a>
+                <div><a href="https://barnabas-edu.github.io" class="nav__logo">Horváth Barnabás Oldala</a></div>
+                <div class="nav__menu" id="nav-menu">
+                    <ul class="nav__list">
+
+                        <li class="nav__item">
+                            <a href="/" class="nav__link">
+                                <i class='bx bx-home-alt nav__icon'></i>
+                                <span class="nav__name">Kezdőlap</span>
+                            </a>
                         </li>
 
-                        <li class="nav__item" id="osztaly">
-                            <a href="suli/5B" class="nav__link">5. B</a>
+                        <li class="nav__item">
+                            <a href="/tananyagok/" class="nav__link">
+                                <i class='bx bx-book nav__icon'></i>
+                                <span class="nav__name">Tananyagok</span>
+                            </a>
+                        </li>
+
+                        <li class="nav__item">
+                            <a href="/szamologep/" class="nav__link">
+                                <i class='bx bx-calculator nav__icon'></i>
+                                <span class="nav__name">Számológép</span>
+                            </a>
                         </li>
 						
-						<li class="nav__item" id="osztaly">
-                            <a href="suli/5C" class="nav__link">5. C </a>
+						<li class="nav__item">
+                            <a href="/rolam/" class="nav__link">
+                                <i class='bx bx-user nav__icon'></i>
+                                <span class="nav__name">Rólam</span>
+                            </a>
                         </li>
-						<li class="nav__item" id="osztaly">
-                            <a href="suli/6A" class="nav__link">6. A</a>
-                        </li>
-						<li class="nav__item" id="osztaly">
-                            <a href="/suli/6B" class="nav__link">6. B</a>
-                        </li>
-						<li class="nav__item" id="osztaly">
-                            <a href="/suli/6C" class="nav__link">6. C</a>
-                        </li>
-						<li class="nav__item" id="osztalyok">
-                            <a href="/suli/7A" class="nav__link">7. A</a>
-                        </li>
-              	  <li class="nav__item" id="osztaly">
-                            <a href="/suli/oszt" class="nav__link">Osztályok</a>
-                        </li></ul>
+                    </ul>
                 </div>
 	<div class="theme-button-place">
         <div class="theme-button" id="themeMenuButton">
@@ -42,7 +42,7 @@ class MyHeader extends HTMLElement {
         </div>
 	</div>
 
-         <div class="popup" id="themePopup">
+        <div class="popup" id="themePopup">
             <!-- Mód választó -->
             <div class="section-title" style="text-align: center">Mód</div>
             <div class="option-group" id="modeOptions">
@@ -57,6 +57,7 @@ class MyHeader extends HTMLElement {
                 <span class="color-option" data-color="default" title="Alapértelmezett"></span>
                 <span class="color-option" data-color="blue" title="Kék"></span>
                 <span class="color-option" data-color="green" title="Zöld"></span>
+				<span class="color-option" data-color="retro" title="Valami"></span>
             </div>
         </div>
     </header>
