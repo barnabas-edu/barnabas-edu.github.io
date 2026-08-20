@@ -33,30 +33,51 @@
 	<h1>Osztályok</h1>
 	Ezen az oldalon lesznek megjelenítve az általam tanított osztályok.
 	<script>
-		// Ez a script megkeresi és megjeleníti az összes nav__item class és osztaly id-vel rendelkező elemet
+		// Header-ből történő betöltés
 document.addEventListener('DOMContentLoaded', function() {
-    // Megkeressük az összes nav__item class-szal rendelkező elemet
-    const navItems = document.querySelectorAll('.nav__item');
-    
-    // Kiszűrjük azokat, amelyeknek 'osztaly' az id-je
-    const osztalyItems = Array.from(navItems).filter(item => item.id === 'osztaly');
-    
-    // Megkeressük az oldal nav__list-jét, ahova be szeretnénk szúrni
-    const pageNavList = document.querySelector('.nav__list');
-    
-    if (pageNavList && osztalyItems.length > 0) {
-        // Kiürítjük a jelenlegi listát
-        pageNavList.innerHTML = '';
+    function frissitOsztalyListat() {
+        // Megkeressük a header-t
+        const header = document.querySelector('header');
         
-        // Hozzáadjuk a megtalált elemeket
-        osztalyItems.forEach(item => {
-            const clonedItem = item.cloneNode(true);
-            pageNavList.appendChild(clonedItem);
+        if (!header) {
+            console.log('Nem található header elem.');
+            return;
+        }
+        
+        // A headerben keressük a nav__item elemeket
+        const headerNavItems = header.querySelectorAll('.nav__item');
+        
+        // Kiszűrjük az osztaly id-vel rendelkezőket
+        const osztalyItems = Array.from(headerNavItems).filter(item => item.id === 'osztaly');
+        
+        // Megkeressük az oldal nav__list-jét
+        const pageNavList = document.querySelector('.nav__list');
+        
+        if (pageNavList && osztalyItems.length > 0) {
+            pageNavList.innerHTML = '';
+            osztalyItems.forEach(item => {
+                pageNavList.appendChild(item.cloneNode(true));
+            });
+            
+            console.log(`Sikeresen betöltve ${osztalyItems.length} osztály elem a headerből.`);
+        } else if (osztalyItems.length === 0) {
+            console.log('Nincsenek osztaly id-vel rendelkező nav__item elemek a headerben.');
+        }
+    }
+    
+    // Kezdeti betöltés
+    frissitOsztalyListat();
+    
+    // Dinamikus frissítés figyelővel
+    const observer = new MutationObserver(frissitOsztalyListat);
+    
+    const header = document.querySelector('header');
+    if (header) {
+        observer.observe(header, {
+            childList: true,
+            subtree: true,
+            attributes: true
         });
-        
-        console.log(`${osztalyItems.length} osztály elemet találtam és jelenítettem meg.`);
-    } else {
-        console.log('Nem találtam osztály elemeket vagy nav__list konténert.');
     }
 });
 	</script>
