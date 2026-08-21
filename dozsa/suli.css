@@ -28,6 +28,23 @@ li#osztalyok {
     padding: 6px;
     cursor: pointer;
 }
+.card-tk {
+    background-color: var(--card-bg);
+    border: var(--card-bord) var(--border-color);
+    border-radius: var(--rcard);
+    padding: 1rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: all 0.2s;
+}
+.card-mf {
+    background-color: var(--card-bg);
+    filter: brightness(75%);
+    border: var(--card-bord) var(--border-color);
+    border-radius: var(--rcard);
+    padding: 1rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: all 0.2s;
+}
 @media screen and (min-width: 576px) {
     .nav__menu {
         display: flex;
