@@ -5,36 +5,36 @@ class MyHeader extends HTMLElement {
         <div class="navbar">
                 <div><a href="/dozsa/" class="nav__logo">Horváth Barnabás Oldala</a></div>
                <div class="nav__menu" id="nav-menu">
-				    <ul class="nav__list" id="navLinks"><li class="nav__item">
-                            <a href="/dozsa/" class="nav__link">Kezdőlap</a>
-                        </li>
-                        
-                        <li class="nav__item" id="osztaly">
-                            <a href="/dozsa/5A" class="nav__link">5. A</a>
+				    <ul class="nav__list">
+
+                        <li class="nav__item">
+                            <a href="/" class="nav__link">
+                                <i class="bx bx-home-alt nav__icon"></i>
+                                <span class="nav__name">Kezdőlap</span>
+                            </a>
                         </li>
 
-                        <li class="nav__item" id="osztaly">
-                            <a href="/dozsa/5B" class="nav__link">5. B</a>
+						<li class="nav__item">
+                            <a href="/szamologep/" class="nav__link">
+                                <i class="bx bx-package nav__icon"></i>
+                                <span class="nav__name">Osztályok</span>
+                            </a>
                         </li>
 						
-						<li class="nav__item" id="osztaly">
-                            <a href="/dozsa/5C" class="nav__link">5. C </a>
+                        <li class="nav__item">
+                            <a href="/tananyagok/" class="nav__link">
+                                <i class="bx bx-book nav__icon"></i>
+                                <span class="nav__name">Könyvek</span>
+                            </a>
                         </li>
-						<li class="nav__item" id="osztaly">
-                            <a href="/dozsa/6A" class="nav__link">6. A</a>
+
+						<li class="nav__item">
+                            <a href="/rolam/" class="nav__link">
+                                <i class="bx bx-at nav__icon"></i>
+                                <span class="nav__name">Kapcsolat</span>
+                            </a>
                         </li>
-						<li class="nav__item" id="osztaly">
-                            <a href="/dozsa/6B" class="nav__link">6. B</a>
-                        </li>
-						<li class="nav__item" id="osztaly">
-                            <a href="/dozsa/6C" class="nav__link">6. C</a>
-                        </li>
-						<li class="nav__item" id="osztaly">
-                            <a href="/dozsa/7A" class="nav__link">7. A</a>
-                        </li>
-              	  <li class="nav__item" id="osztalyok">
-                            <a href="/dozsa/oszt" class="nav__link">Osztályok</a>
-                        </li></ul>
+                    </ul>
                 </div>
 	<div class="theme-button-place">
         <div class="theme-button" id="themeMenuButton">
