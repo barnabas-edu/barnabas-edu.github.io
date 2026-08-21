@@ -45,6 +45,10 @@ li#osztalyok {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
     transition: all 0.2s;
 }
+.card-tk h3, .card-mf h3 {
+    color: var(--text-color);
+    padding-block: 1rem;
+}
 .img-cont {
     width: 100%;
     height: 200px;
@@ -52,7 +56,6 @@ li#osztalyok {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-bottom: 1rem;
 }
 .img-cont img {
     height: 100%;
