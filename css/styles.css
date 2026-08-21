@@ -50,6 +50,7 @@
         --primary-color: #1976d2;
         --primary-hover: #1565c0;
         --card-bg: #e3f2fd;
+		--card-bg2: color-mix(in srgb, var(--card-bg), black 15%);
         --border-color: #90caf9;
         --active-bg: #bbdefb;
     }
@@ -58,6 +59,7 @@
         --primary-color: #64b5f6;
         --primary-hover: #42a5f5;
         --card-bg: #1e2a38;
+		--card-bg2: color-mix(in srgb, var(--card-bg), white 15%);
         --border-color: #1565c0;
         --bg-color: #0d1b2a;
         --text-color: #e0e0e0;
@@ -71,6 +73,7 @@
         --primary-color: #2e7d32;
         --primary-hover: #1b5e20;
         --card-bg: #e8f5e9;
+		--card-bg2: color-mix(in srgb, var(--card-bg), black 15%);
         --border-color: #a5d6a7;
 		--header-bg: #49a649;
         --active-bg: #c8e6c9;
@@ -80,6 +83,7 @@
         --primary-color: #81c784;
         --primary-hover: #66bb6a;
         --card-bg: #1b2e1b;
+		--card-bg2: color-mix(in srgb, var(--card-bg), white 15%);
         --border-color: #2e7d32;
         --bg-color: #0d1f0d;
         --text-color: #d0e8d0;
@@ -92,6 +96,7 @@
 		--primary-color: #0000a8;
         --primary-hover: #0000db;
         --card-bg: #c0c7c8;
+		--card-bg2: color-mix(in srgb, var(--card-bg), black 15%);
 		--card-bord: 2px solid;
 		--rcard: 0;
         --border-color: #dfdfdf;
