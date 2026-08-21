@@ -62,6 +62,7 @@ li#osztalyok {
     display: flex;
     gap: 20px;
     justify-content: space-between;
+    padding-top: 1rem;
 }
 img.d-link {
     width: auto;
