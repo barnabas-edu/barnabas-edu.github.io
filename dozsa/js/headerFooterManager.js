@@ -8,28 +8,28 @@ class MyHeader extends HTMLElement {
 				    <ul class="nav__list">
 
                         <li class="nav__item">
-                            <a href="/" class="nav__link">
+                            <a href="/dozsa/" class="nav__link">
                                 <i class="bx bx-home-alt nav__icon"></i>
                                 <span class="nav__name">Kezdőlap</span>
                             </a>
                         </li>
 
 						<li class="nav__item">
-                            <a href="/szamologep/" class="nav__link">
+                            <a href="/dozsa/osztalyok" class="nav__link">
                                 <i class="bx bx-package nav__icon"></i>
                                 <span class="nav__name">Osztályok</span>
                             </a>
                         </li>
 						
                         <li class="nav__item">
-                            <a href="/tananyagok/" class="nav__link">
+                            <a href="/dozsa/konyvek" class="nav__link">
                                 <i class="bx bx-book nav__icon"></i>
                                 <span class="nav__name">Könyvek</span>
                             </a>
                         </li>
 
 						<li class="nav__item">
-                            <a href="/rolam/" class="nav__link">
+                            <a href="/dozsa/kapcsolat" class="nav__link">
                                 <i class="bx bx-at nav__icon"></i>
                                 <span class="nav__name">Kapcsolat</span>
                             </a>
