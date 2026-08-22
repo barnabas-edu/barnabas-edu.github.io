@@ -12,6 +12,7 @@
 		--card-bord: 1px solid; 
 		--rcard: 1rem;
         --border-color: #dee2e6;
+		--border-color2: color-mix(in srgb, var(--border-color), black 15%);
         --bg-color: #ffffff;
         --text-color: #1a1a1a;
         --header-bg: #1658ae;
@@ -35,6 +36,7 @@
         --card-bg: #2d2d2d;
 		--card-bg2: color-mix(in srgb, var(--card-bg), white 15%);
         --border-color: #444444;
+		--border-color2: color-mix(in srgb, var(--border-color), white 15%);
         --bg-color: #1a1a1a;
         --text-color: #e9ecef;
         --header-bg: #0d366a;
@@ -52,6 +54,7 @@
         --card-bg: #e3f2fd;
 		--card-bg2: color-mix(in srgb, var(--card-bg), black 15%);
         --border-color: #90caf9;
+		--border-color2: color-mix(in srgb, var(--border-color), black 15%);
         --active-bg: #bbdefb;
     }
 
@@ -61,6 +64,7 @@
         --card-bg: #1e2a38;
 		--card-bg2: color-mix(in srgb, var(--card-bg), white 15%);
         --border-color: #1565c0;
+		--border-color2: color-mix(in srgb, var(--border-color), white 15%);
         --bg-color: #0d1b2a;
         --text-color: #e0e0e0;
         --header-bg: #112240;
@@ -75,6 +79,7 @@
         --card-bg: #e8f5e9;
 		--card-bg2: color-mix(in srgb, var(--card-bg), black 15%);
         --border-color: #a5d6a7;
+		--border-color2: color-mix(in srgb, var(--border-color), black 15%);
 		--header-bg: #49a649;
         --active-bg: #c8e6c9;
     }
@@ -85,6 +90,7 @@
         --card-bg: #1b2e1b;
 		--card-bg2: color-mix(in srgb, var(--card-bg), white 15%);
         --border-color: #2e7d32;
+		--border-color2: color-mix(in srgb, var(--border-color), white 15%);
         --bg-color: #0d1f0d;
         --text-color: #d0e8d0;
         --header-bg: #132413;
@@ -100,6 +106,7 @@
 		--card-bord: 2px solid;
 		--rcard: 0;
         --border-color: #dfdfdf;
+		--border-color2: color-mix(in srgb, var(--border-color), black 15%);
         --active-bg: #bbdefb;
 		--bg-color: #008080;
 		--header-bg: #c0c0c0;
