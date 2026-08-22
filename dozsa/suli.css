@@ -93,8 +93,7 @@ img.d-link:hover {
     display: block;
     border-radius: 1rem;
     border: var(--card-bord) var(--border-color);
-    /* margin: 0.5rem; */
-    width: 100%;
+    width: 300px;
 }
 .jobb {
     display: flex;
