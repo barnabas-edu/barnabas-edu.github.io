@@ -78,6 +78,30 @@ img.d-link {
 img.d-link:hover {
     transform: translateY(calc(-1 / 2 * var(--rcard)));
 }
+.kapcs {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 300px 1fr;
+    max-width: 900px;
+    margin-inline: auto;
+}
+.bal {
+    display: inherit;
+    justify-content: center;
+}
+.bal img {
+    display: block;
+    border-radius: 1rem;
+    border: var(--card-bord) var(--border-color);
+    /* margin: 0.5rem; */
+    width: 100%;
+}
+.jobb {
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+    width: stretch;
+}
 @media screen and (min-width: 576px) {
     .nav__menu {
         display: flex;
@@ -98,6 +122,9 @@ img.d-link:hover {
   li#osztalyok {
     display: flex;
 }
+    .kapcs {
+        grid-template-columns: 1fr;
+    }
 }
 
 @media screen and (max-width: 320px) {
