@@ -35,6 +35,7 @@ li#osztalyok {
     padding: 1rem;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
     transition: all 0.2s;
+    height: fit-content;
 }
 .card-mf {
     background-color: var(--card-bg2);
@@ -43,10 +44,10 @@ li#osztalyok {
     padding: 1rem;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
     transition: all 0.2s;
+    height: fit-content;
 }
 .card-tk h3, .card-mf h3 {
     color: var(--text-color);
-    padding-block: 1rem;
 }
 .img-cont {
     width: 100%;
@@ -55,6 +56,7 @@ li#osztalyok {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 1rem;
 }
 .img-cont img {
     height: 100%;
@@ -64,6 +66,7 @@ li#osztalyok {
     display: flex;
     gap: 20px;
     justify-content: space-between;
+    margin-top: 1rem;
 }
 img.d-link {
     width: auto;
