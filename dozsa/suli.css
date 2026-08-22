@@ -94,6 +94,8 @@ img.d-link:hover {
     border-radius: 1rem;
     border: var(--card-bord) var(--border-color);
     width: 300px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: all 0.2s;
 }
 .jobb {
     display: flex;
