@@ -38,7 +38,7 @@ li#osztalyok {
 }
 .card-mf {
     background-color: var(--card-bg2);
-    border: var(--card-bord) var(--border-color);
+    border: var(--card-bord) var(--border-color2);
     border-radius: var(--rcard);
     padding: 1rem;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
