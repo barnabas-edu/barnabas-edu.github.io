@@ -28,6 +28,7 @@
 		--nav-menu-p: 0 0;
 		--navshadow: ;
 		--nav-items none;
+		--nav-item-text-hover: var(--primary-color);
     }
 
     [data-color-theme="default"][data-mode="dark"] {
@@ -46,6 +47,7 @@
         --popup-shadow: 0 8px 24px rgba(0,0,0,0.6);
         --active-bg: #3d3d3d;
 		--font: 'Quicksand', sans-serif;
+		--nav-item-text-hover: var(--primary-color);
     }
 
     [data-color-theme="blue"][data-mode="light"] {
