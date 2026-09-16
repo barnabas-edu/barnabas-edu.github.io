@@ -30,8 +30,15 @@ class MyHeader extends HTMLElement {
 
 						<li class="nav__item">
                             <a href="/dozsa/kapcsolat" class="nav__link">
-                                <i class="bx bx-at nav__icon"></i>
-                                <span class="nav__name">Kapcsolat</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="21" viewBox="0 0 22 21" focusable="false" aria-hidden="true">
+									<g>
+										<path d="M0 0L5.233 0 5.233 6.603 10.979 0 18.624 0 9.682 10.13 19.364 20.261 10.979 20.261 5.233 13.67 5.233 20.261 0 20.261z" transform="translate(-1071 -245) translate(222 235) translate(839) translate(10 10)">
+										</path>
+										<path d="M12.976 10.081L21.268 1.479 21.268 18z" transform="translate(-1071 -245) translate(222 235) translate(839) translate(10 10)">
+										</path>
+									</g>
+								</svg>
+                                <span class="nav__name">KRÉTA</span>
                             </a>
                         </li>
                     </ul>
