@@ -258,7 +258,8 @@ body {
 	cursor: var(--pointer);
 }
 .nav__link:hover {
-	color: var(--first-color);
+    color: var(--nav-item-text-hover);
+    fill: var(--nav-item-text-hover);
 }
 
 .theme-button-place {
