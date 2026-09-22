@@ -29,7 +29,7 @@ class MyHeader extends HTMLElement {
                         </li>
 
 						<li class="nav__item">
-                            <a href="https://klik030028001.e-kreta.hu/" class="nav__link">
+                            <a href="https://klik030028001.e-kreta.hu/" target="_blank" class="nav__link">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="21" viewBox="0 0 22 21" focusable="false" aria-hidden="true">
 									<g>
 										<path d="M0 0L5.233 0 5.233 6.603 10.979 0 18.624 0 9.682 10.13 19.364 20.261 10.979 20.261 5.233 13.67 5.233 20.261 0 20.261z" transform="translate(-1071 -245) translate(222 235) translate(839) translate(10 10)">
