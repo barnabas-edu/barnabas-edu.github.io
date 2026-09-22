@@ -501,7 +501,7 @@ transition: all 0.2s;
     height: fit-content;
 }
 .card-drive-s {
-    background-color: #f8f9fa;
+    background-color: var(--card-bg);
     border: var(--card-bord) #1A73E8;
     border-radius: var(--rcard);
     box-shadow: 0 2px 8px #1a73e880;
