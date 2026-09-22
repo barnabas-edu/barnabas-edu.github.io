@@ -508,8 +508,11 @@ transition: all 0.2s;
     transition: all 0.2s;
     height: fit-content;
     padding: 1rem;
+	display: flex;
     justify-content: space-between;
     flex-direction: row;
+}
+.drive-f-link {
     display: none;
 }
 .btn {
@@ -840,8 +843,8 @@ li.nav__item {
 	.card-drive {
     display: none;
 	}
-	.card-drive-s {
-    display: flex;
+	.drive-f-link {
+    display: block;
 	}
 }
 
