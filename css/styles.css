@@ -492,7 +492,14 @@ transition: all 0.2s;
     max-width: 900px;
     margin-inline: auto;
 }
-
+.card-drive {
+    background-color: #f8f9fa;
+    border: var(--card-bord) #1A73E8;
+    border-radius: var(--rcard);
+    box-shadow: 0 2px 8px #1a73e880;
+    transition: all 0.2s;
+    height: fit-content;
+}
 .btn {
 	display: inline-block;
 	padding: 6px 12px;
@@ -818,6 +825,9 @@ li.nav__item {
   .nav__list {
         width: 100%;
     }
+	.google-drive-folder {
+    display: none;
+}
 }
 
 .nav__list, 
