@@ -254,7 +254,7 @@ body {
 }
 .nav__link {
 	color: var(--header-text);
-	transition: background 0.2s, color 0.2s;
+	transition: background 0.2s, color 0.2s fill 0.2s;
 	cursor: var(--pointer);
 }
 .nav__link:hover {
