@@ -46,6 +46,14 @@ li#osztalyok {
     transition: all 0.2s;
     height: fit-content;
 }
+.card-drive {
+    background-color: #f8f9fa;
+    border: var(--card-bord) #1A73E8;
+    border-radius: var(--rcard);
+    box-shadow: 0 2px 8px #1a73e880;
+    transition: all 0.2s;
+    height: fit-content;
+}
 .card-tk h3, .card-mf h3 {
     color: var(--text-color);
 }
