@@ -262,6 +262,10 @@ body {
     fill: var(--nav-item-text-hover);
 }
 
+a.nav__link:active {
+    color: var(--primary-hover);
+}
+
 .theme-button-place {
     display: flex;
     justify-content: flex-end;
