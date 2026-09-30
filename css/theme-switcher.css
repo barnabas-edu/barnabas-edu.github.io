@@ -250,6 +250,11 @@ transition: all 0.2s;
 	transform: translateY(calc(-1 / 2 * var(--rcard)));
 }
 
+.card-s {
+    display: flex;
+    justify-content: space-between;
+}
+
 .card h3 {
 	color: var(--primary-color);
 }
