@@ -793,7 +793,7 @@ table, th, td {
    font-weight: 600;
 }
 .nav__logo:hover {
-    color: var(--active-bg);
+    color: var(--nav-item-text-hover);
 }
 .nav__img {
     display: none;
