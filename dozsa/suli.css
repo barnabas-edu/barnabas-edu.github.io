@@ -2,11 +2,13 @@
     [data-color-theme="default"][data-mode="light"] {
         --primary-color: #3697FE;
         --header-bg: #3697FE;
+        --nav-item-text-hover: #014a98;
     }
 
     [data-color-theme="default"][data-mode="dark"] {
         --primary-color: #3697FE;
         --header-bg: #014a98;
+        --nav-item-text-hover: #3697fe;
     }
 
 .navbar {
